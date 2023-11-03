@@ -3,20 +3,23 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { slide, scale } from "@utils/anim";
+import { useNavState } from "@/store/store";
 
 type ILinks = {
-  key: number,
+  key: number;
   data: {
     index: number;
     title: string;
     href: string;
   };
-  isActive: boolean;
+  activeLink: boolean;
   setSelectedIndicator: (value: string) => void;
 };
 
-const Links = ({ data, isActive, setSelectedIndicator }: ILinks) => {
+const Links = ({ data, activeLink, setSelectedIndicator }: ILinks) => {
   const { title, href, index } = data;
+  const { setIsActive } = useNavState();
+
   return (
     <motion.div
       className={styles.link}
@@ -31,11 +34,13 @@ const Links = ({ data, isActive, setSelectedIndicator }: ILinks) => {
     >
       <motion.div
         variants={scale}
-        animate={isActive ? "open" : "closed"}
+        animate={activeLink ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
 
-      <Link href={href}>{title}</Link>
+      <Link onClick={setIsActive} href={href}>
+        {title}
+      </Link>
     </motion.div>
   );
 };

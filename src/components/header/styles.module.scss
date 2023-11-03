@@ -10,7 +10,6 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -27,7 +26,7 @@
         height: 1px;
         width: 40%;
         margin: auto;
-        background-color: #000;
+        background-color: #fff;
         position: relative;
         transition: transform 0.3s;
         transition: 0.5s all ease-in-out;
@@ -43,13 +42,12 @@
     }
 
     &.active {
-      background-color: #000;
 
       .burger {
 
         &::after,
         &::before {
-          background-color: #fff;
+          background-color: #000;
         }
 
         &::after {

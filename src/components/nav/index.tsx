@@ -45,7 +45,7 @@ const Navbar = () => {
               <Links
                 key={index}
                 data={{ ...data, index }}
-                isActive={selectedIndicator == data.href}
+                activeLink={selectedIndicator == data.href}
                 setSelectedIndicator={setSelectedIndicator}
               ></Links>
             );

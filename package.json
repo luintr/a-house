@@ -20,7 +20,8 @@
     "sass": "^1.69.5",
     "three": "^0.158.0",
     "three-stdlib": "2.27.2",
-    "valtio": "1.10.3"
+    "valtio": "1.10.3",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@types/node": "^20",
