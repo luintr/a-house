@@ -166,8 +166,11 @@ body {
   -webkit-font-smoothing: antialiased !important;
   scroll-behavior: unset !important;
   overscroll-behavior-y: none !important;
-  
+
   ::-webkit-scrollbar {
     display: none;
   }
+
+  background: #1e1e1e;
+
 }

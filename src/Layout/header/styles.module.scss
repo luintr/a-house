@@ -1,4 +1,4 @@
-.button{
+.button {
   position: fixed;
   right: 0px;
   margin: 20px;
@@ -13,38 +13,45 @@
   justify-content: center;
 }
 
-.burger{
+.burger {
   width: 100%;
-  &::after, &::before{
-      content: "";
-      display: block;
-      height: 1px;
-      width: 40%;
-      margin: auto;
-      background-color: #000;
-      position: relative;
-      transition: transform 0.3s;
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 40%;
+    margin: auto;
+    background-color: #000;
+    position: relative;
+    transition: transform 0.3s;
   }
 
-  &::after{
-      top: -5px;
+  &::after {
+    top: -5px;
   }
 
-  &::before{
-      top: 5px;
+  &::before {
+    top: 5px;
   }
 }
 
-.burgerActive{
+.burgerActive {
 
-  &::after{
-      transform: rotate(45deg);
-      top: -1px;
+  &::after {
+    transform: rotate(45deg);
+    top: -1px;
   }
 
-  &::before{
-      transform: rotate(-45deg);
-      top: 0px;
+  &::before {
+    transform: rotate(-45deg);
+    top: 0px;
   }
-  
+
+}
+
+.header {
+  position: relative;
+  z-index: 100;
 }
