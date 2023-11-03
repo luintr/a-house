@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s all ease-in-out;
 
     .burger {
       width: 100%;
@@ -29,6 +30,7 @@
         background-color: #000;
         position: relative;
         transition: transform 0.3s;
+        transition: 0.5s all ease-in-out;
       }
 
       &::after {
@@ -38,8 +40,17 @@
       &::before {
         top: 5px;
       }
+    }
 
-      .burgerActive {
+    &.active {
+      background-color: #000;
+
+      .burger {
+
+        &::after,
+        &::before {
+          background-color: #fff;
+        }
 
         &::after {
           transform: rotate(45deg);
@@ -50,7 +61,6 @@
           transform: rotate(-45deg);
           top: 0px;
         }
-
       }
     }
   }
@@ -62,7 +72,7 @@
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
+    z-index: 1;
     background: rgba($color: #000000, $alpha: 0);
     transition: 1s all ease-in-out;
     pointer-events: none;
