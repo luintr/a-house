@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className={s.header}>
       <div
-        className={s.backdrop}
+        className={`${s.backdrop} ${isActive ? s.open : ""}`}
         onClick={() => {
           setIsActive(!isActive);
         }}
@@ -19,7 +19,7 @@ const Header = () => {
         onClick={() => {
           setIsActive(!isActive);
         }}
-        className={s.button}
+        className={s.hamburger}
       >
         <div className={`${s.burger} ${isActive ? s.burgerActive : ""}`}></div>
         <AnimatePresence mode="wait">{isActive && <Navbar />}</AnimatePresence>
