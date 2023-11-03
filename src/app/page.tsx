@@ -1,4 +1,13 @@
-import s from ".//page.module.scss";
+"use client";
+import { Suspense } from "react";
+import HomeModules from "./Home";
+
 export default function Home() {
-  return <main className={s.main}></main>;
+  return (
+    <main>
+      <Suspense fallback={null}>
+        <HomeModules />
+      </Suspense>
+    </main>
+  );
 }

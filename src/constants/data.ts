@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import gallery1 from '@images/1.jpg';
 import gallery2 from '@images/2.jpg';
 import gallery3 from '@images/3.jpg';
@@ -13,9 +14,7 @@ import gallery12 from '@images/12.jpg';
 import gallery13 from '@images/13.jpg';
 import gallery14 from '@images/14.jpg';
 
-
-
-export {
+const ImageData: StaticImageData[] = [
   gallery1,
   gallery2,
   gallery3,
@@ -30,5 +29,6 @@ export {
   gallery12,
   gallery13,
   gallery14,
+]
 
-}
+export default ImageData
