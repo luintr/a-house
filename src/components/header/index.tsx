@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import s from "./styles.module.scss";
 import { AnimatePresence } from "framer-motion";
-import Navbar from "../nav";
+import Navbar from "@components/nav";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
