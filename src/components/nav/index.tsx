@@ -15,6 +15,50 @@ const navItems = [
     title: "Gallery",
     href: "/gallery",
   },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Home",
+    href: "/",
+  },
 ];
 
 const Navbar = () => {
@@ -36,10 +80,6 @@ const Navbar = () => {
           }}
           className={styles.nav}
         >
-          <div className={styles.header}>
-            <p>Navigation</p>
-          </div>
-
           {navItems.map((data, index) => {
             return (
               <Links
@@ -50,16 +90,6 @@ const Navbar = () => {
               ></Links>
             );
           })}
-        </div>
-
-        <div className={styles.footer}>
-          <a>Awwwards</a>
-
-          <a>Instagram</a>
-
-          <a>Dribble</a>
-
-          <a>LinkedIn</a>
         </div>
       </div>
       <Curve />
