@@ -2,6 +2,22 @@
   position: relative;
   z-index: 100;
 
+  .logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 10rem;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .hamburger {
     position: fixed;
     right: 0px;
