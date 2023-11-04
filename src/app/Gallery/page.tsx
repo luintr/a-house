@@ -16,6 +16,7 @@ let xForce = 0;
 let yForce = 0;
 const easing = 0.12;
 const speed = 0.01;
+const TOTAL_IMAGES = 9;
 
 const Gallery = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -54,24 +55,87 @@ const Gallery = () => {
   };
 
   if (isExpanded) {
+    const duration = 0.11;
+    const tl = gsap.timeline({ defaults: { ease: "power4.in", duration } });
+    let range = 100;
+
+    for (let i = 0; i < TOTAL_IMAGES; i++) {
+      // console.log(imgRefs);
+      tl.to(
+        imgRefs.refs[`${i}`],
+        {
+          top: `${Math.random() * range}%`,
+          left: `${Math.random() * range}%`,
+        },
+        `-=${duration - 0.1}`
+      );
+
+      range -= 5;
+    }
   }
 
   return (
     <main onMouseMove={(e) => manageMouseMove(e)} className={styles.main}>
       <div ref={plane1} className={styles.plane}>
-        <Image src={ImageData[0]} alt="image" width={150} />
-        <Image src={ImageData[0]} alt="image" width={175} />
-        <Image src={ImageData[0]} alt="image" width={200} />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={150}
+          ref={(element: typeof Image) => imgRefs.setRef("0", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={175}
+          ref={(element: typeof Image) => imgRefs.setRef("1", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={200}
+          ref={(element: typeof Image) => imgRefs.setRef("2", element)}
+        />
       </div>
       <div ref={plane2} className={styles.plane}>
-        <Image src={ImageData[0]} alt="image" width={200} />
-        <Image src={ImageData[0]} alt="image" width={225} />
-        <Image src={ImageData[0]} alt="image" width={250} />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={200}
+          ref={(element: typeof Image) => imgRefs.setRef("3", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={225}
+          ref={(element: typeof Image) => imgRefs.setRef("4", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={250}
+          ref={(element: typeof Image) => imgRefs.setRef("5", element)}
+        />
       </div>
       <div ref={plane3} className={styles.plane}>
-        <Image src={ImageData[0]} alt="image" width={225} />
-        <Image src={ImageData[0]} alt="image" width={300} />
-        <Image src={ImageData[0]} alt="image" width={300} onClick={() => setIsExpanded(true)} />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={225}
+          ref={(element: typeof Image) => imgRefs.setRef("6", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={300}
+          ref={(element: typeof Image) => imgRefs.setRef("7", element)}
+        />
+        <Image
+          src={ImageData[0]}
+          alt="image"
+          width={300}
+          onClick={() => setIsExpanded(true)}
+          ref={(element: typeof Image) => imgRefs.setRef("8", element)}
+        />
       </div>
     </main>
   );
