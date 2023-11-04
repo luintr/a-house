@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 "use client";
 import React from "react";
 import s from "./styles.module.scss";
@@ -44,5 +45,4 @@ const Header = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
 		);
 	}
 );
-
 export default Header;
