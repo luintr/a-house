@@ -1,99 +1,110 @@
 .header {
-  position: relative;
-  z-index: 100;
+	position: relative;
+	z-index: 100;
 
-  .logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 10rem;
-    margin: 20px;
-    cursor: pointer;
-    transition: 0.5s all ease-in-out;
+	.logo {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 10rem;
+		margin: 20px;
+		cursor: pointer;
+		transition: 0.5s all ease-in-out;
 
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
 
-  .hamburger {
-    position: fixed;
-    right: 0px;
-    margin: 20px;
-    z-index: 3;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s all ease-in-out;
+	.hamburger {
+		position: fixed;
+		z-index: 11;
+		right: 0;
+		margin: 20px;
+		z-index: 3;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: 0.5s all ease-in-out;
 
-    .burger {
-      width: 100%;
+		.burger {
+			position: relative;
+			width: 100%;
+			padding: 30px;
+			display: flex;
+			gap: 8px;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			&::after,
+			&::before {
+				position: absolute;
+				content: "";
+				display: block;
+				height: 1px;
+				width: 30px;
+				margin: auto;
+				background-color: #fff;
+				position: relative;
+				transition: transform 0.3s;
+				transition: 0.5s all ease-in-out;
+				mix-blend-mode: difference;
+				background-color: white;
+			}
+		}
 
-      &::after,
-      &::before {
-        content: "";
-        display: block;
-        height: 1px;
-        width: 40%;
-        margin: auto;
-        background-color: #fff;
-        position: relative;
-        transition: transform 0.3s;
-        transition: 0.5s all ease-in-out;
-      }
+		&.active {
+			.burger {
+				&::after,
+				&::before {
+					background-color: #000;
+				}
 
-      &::after {
-        top: -5px;
-      }
+				&::after {
+					transform: rotate(45deg);
+					top: -9px;
+				}
 
-      &::before {
-        top: 5px;
-      }
-    }
+				&::before {
+					transform: rotate(-45deg);
+					top: 0px;
+				}
+			}
+		}
+		.bounds {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: all;
+			&:hover {
+				transform: scale(3);
+			}
+		}
+	}
 
-    &.active {
+	.backdrop {
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+		z-index: 1;
+		background: rgba($color: #000000, $alpha: 0);
+		transition: 1s all ease-in-out;
+		pointer-events: none;
 
-      .burger {
-
-        &::after,
-        &::before {
-          background-color: #000;
-        }
-
-        &::after {
-          transform: rotate(45deg);
-          top: -1px;
-        }
-
-        &::before {
-          transform: rotate(-45deg);
-          top: 0px;
-        }
-      }
-    }
-  }
-
-  .backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    background: rgba($color: #000000, $alpha: 0);
-    transition: 1s all ease-in-out;
-    pointer-events: none;
-
-    &.open {
-      background: rgba($color: #000000, $alpha: 0.8);
-      pointer-events: initial;
-    }
-  }
+		&.open {
+			background: rgba($color: #000000, $alpha: 0.8);
+			pointer-events: initial;
+		}
+	}
 }

@@ -84,40 +84,38 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
-  background: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	background: none;
 }
 
 /* make sure to set some focus styles for accessibility */
 :focus {
-  outline: 0;
+	outline: 0;
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /* Firefox */
-input[type='number'] {
-  -moz-appearance: textfield;
+input[type="number"] {
+	-moz-appearance: textfield;
 }
 
 body {
-  font-smoothing: antialiased !important;
-  -webkit-font-smoothing: antialiased !important;
-  scroll-behavior: unset !important;
-  overscroll-behavior-y: none !important;
+	font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased !important;
+	scroll-behavior: unset !important;
+	overscroll-behavior-y: none !important;
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  background: #1e1e1e;
-
+	background: #1e1e1e;
+}
+::-webkit-scrollbar {
+	display: none;
 }

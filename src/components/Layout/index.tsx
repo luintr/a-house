@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
 	return (
 		<Fragment>
-			<Header />
+			<Header ref={stickyElement} />
 			<Cursor stickyElement={stickyElement} />
 			{children}
 		</Fragment>
