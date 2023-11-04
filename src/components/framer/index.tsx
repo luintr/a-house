@@ -9,8 +9,8 @@ export default function Framer({ children }: { children: ReactNode }) {
 		const { clientX, clientY } = e;
 		const { height, width, left, top } =
 			ref.current && ref?.current.getBoundingClientRect();
-		const middleX = clientX - (left + width / 2);
-		const middleY = clientY - (top + height / 2);
+		const middleX = clientX - (left + width);
+		const middleY = clientY - (top + height);
 		setPosition({ x: middleX * 0.1, y: middleY * 0.1 });
 	};
 

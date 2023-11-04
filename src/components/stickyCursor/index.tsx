@@ -10,8 +10,8 @@ import {
 import s from "./style.module.scss";
 
 const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
-	const [isHovered, setIsHovered] = useState(false);
-	const cursor = useRef<TCustomMotionDivProps>(null);
+	const [isHovered, setIsHovered] = useState<boolean>(false);
+	const cursorRef = useRef<TCustomMotionDivProps>(null);
 	const cursorSize = isHovered ? 60 : 15;
 
 	const mouse = {
@@ -33,14 +33,13 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 
 	const rotate = (distance: any) => {
 		const angle = Math.atan2(distance.y, distance.x);
-		animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
+		animate(cursorRef.current, { rotate: `${angle}rad` }, { duration: 0 });
 	};
 
-	const manageMouseMove = (e: any) => {
+	const manageMouseMove = (e: MouseEvent) => {
 		const { clientX, clientY } = e;
 		const { left, top, height, width } =
 			stickyElement.current.getBoundingClientRect();
-
 		//center position of the stickyElement
 		const center = { x: left + width / 2, y: top + height / 2 };
 
@@ -68,38 +67,30 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 		}
 	};
 
-	const manageMouseOver = (e: any) => {
+	const manageMouseOver = (e: MouseEvent) => {
+		console.log("ehehe");
 		setIsHovered(true);
 	};
 
-	const manageMouseLeave = (e: any) => {
+	const manageMouseLeave = (e: MouseEvent) => {
 		setIsHovered(false);
 		animate(
-			cursor.current,
+			cursorRef.current,
 			{ scaleX: 1, scaleY: 1 },
-			{ duration: 0.1 }
-			// { type: "spring" }
+			// { duration: 0.1 }
+			{ type: "spring" }
 		);
 	};
 
 	useEffect(() => {
-		if (stickyElement?.curent) {
-			console.log(stickyElement);
-			stickyElement.current.addEventListener("mouseenter", manageMouseOver);
-			stickyElement.current.addEventListener("mouseleave", manageMouseLeave);
-			window.addEventListener("mousemove", manageMouseMove);
-			return () => {
-				stickyElement.current.removeEventListener(
-					"mouseenter",
-					manageMouseOver
-				);
-				stickyElement.current.removeEventListener(
-					"mouseleave",
-					manageMouseLeave
-				);
-				window.removeEventListener("mousemove", manageMouseMove);
-			};
-		}
+		stickyElement.current.addEventListener("mouseenter", manageMouseOver);
+		stickyElement.current.addEventListener("mouseleave", manageMouseLeave);
+		window.addEventListener("mousemove", manageMouseMove);
+		return () => {
+			stickyElement.current.removeEventListener("mouseenter", manageMouseOver);
+			stickyElement.current.removeEventListener("mouseleave", manageMouseLeave);
+			window.removeEventListener("mousemove", manageMouseMove);
+		};
 	}, [isHovered]);
 
 	const template = ({ rotate, scaleX, scaleY }: any) => {
@@ -121,7 +112,7 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 					height: cursorSize,
 				}}
 				className={s.cursor}
-				ref={cursor}
+				ref={cursorRef}
 			></motion.div>
 		</div>
 	);
