@@ -8,11 +8,12 @@ declare global {
 
     type TFramer = {
         children: React.ReactNode;
-        isActive: boolean;
+        isActive?: boolean;
     };
     type TDataFooter = {
         title: string;
         href: string;
         icon: () => JSX.Element;
+        id: number;
     }[];
 }

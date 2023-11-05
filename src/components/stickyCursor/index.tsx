@@ -9,7 +9,13 @@ import {
 } from "framer-motion";
 import s from "./style.module.scss";
 
-const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
+function Cursor({
+	stickyElement,
+	footerElements,
+}: {
+	stickyElement: TCustomMotionDivProps;
+	footerElements: any;
+}) {
 	const [isHovered, setIsHovered] = useState<boolean>(false);
 	const cursorRef = useRef<TCustomMotionDivProps>(null);
 	const cursorSize = isHovered ? 60 : 15;
@@ -36,10 +42,9 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 		animate(cursorRef.current, { rotate: `${angle}rad` }, { duration: 0 });
 	};
 
-	const manageMouseMove = (e: MouseEvent) => {
+	const manageMouseMove = (e: any) => {
 		const { clientX, clientY } = e;
-		const { left, top, height, width } =
-			stickyElement.current.getBoundingClientRect();
+		const { left, top, height, width } = e.target.getBoundingClientRect();
 		//center position of the stickyElement
 		const center = { x: left + width / 2, y: top + height / 2 };
 
@@ -85,7 +90,24 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 			stickyElement.current.removeEventListener("mouseleave", manageMouseLeave);
 			window.removeEventListener("mousemove", manageMouseMove);
 		};
-	}, [isHovered]);
+	}, [isHovered, stickyElement]);
+
+	// handle sticky with each footerEl
+	useEffect(() => {
+		const parentEl = footerElements.current.refs;
+		Object.values(parentEl).forEach((footerElement: any) => {
+			footerElement.addEventListener("mouseenter", manageMouseOver);
+			footerElement.addEventListener("mouseleave", manageMouseLeave);
+		});
+		window.addEventListener("mousemove", manageMouseMove);
+		return () => {
+			Object.values(parentEl).forEach((footerElement: any) => {
+				footerElement.removeEventListener("mouseenter", manageMouseOver);
+				footerElement.removeEventListener("mouseleave", manageMouseLeave);
+			});
+			window.removeEventListener("mousemove", manageMouseMove);
+		};
+	}, [isHovered, footerElements.current]);
 
 	const template = ({ rotate, scaleX, scaleY }: any) => {
 		return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
@@ -110,6 +132,6 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 			></motion.div>
 		</div>
 	);
-};
+}
 
 export default Cursor;
