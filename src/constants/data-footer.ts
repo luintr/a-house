@@ -1,6 +1,6 @@
 import { IconFacebook, IconInsta, IconPhone } from "@/components/IconSvg";
 
-export const DATA_FOOTER = [
+export const DATA_FOOTER: TDataFooter = [
 	{
 		href: "#",
 		icon: IconFacebook,
