@@ -1,7 +1,6 @@
 .header {
 	position: relative;
 	z-index: 100;
-
 	.logo {
 		position: fixed;
 		top: 0;
@@ -24,15 +23,14 @@
 		right: 0;
 		margin: 20px;
 		z-index: 3;
-		width: 80px;
-		height: 80px;
+		width: 100px;
+		height: 100px;
 		border-radius: 50%;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		transition: 0.5s all ease-in-out;
-
 		.burger {
 			position: relative;
 			width: 100%;
@@ -42,6 +40,11 @@
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+
+			&:hover::after,
+			&:hover::before {
+				background-color: #000;
+			}
 			&::after,
 			&::before {
 				position: absolute;
@@ -53,9 +56,8 @@
 				background-color: #fff;
 				position: relative;
 				transition: transform 0.3s;
-				transition: 0.5s all ease-in-out;
+				transition: 0.3s all ease-in-out;
 				mix-blend-mode: difference;
-				background-color: white;
 			}
 		}
 

@@ -1,11 +1,11 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
 type NavState = {
-  isActive: boolean
-  setIsActive: () => void
-}
+  isActive: boolean;
+  setIsActive: () => void;
+};
 
-export const useNavState = create<NavState>()((set) => ({
+export const useNavState = create<NavState>()(set => ({
   isActive: false,
-  setIsActive: () => set((state) => ({ isActive: !state.isActive })),
-}))
+  setIsActive: () => set(state => ({ isActive: !state.isActive })),
+}));

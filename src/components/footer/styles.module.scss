@@ -1,0 +1,40 @@
+.sectionFooter {
+	position: fixed;
+	z-index: 1;
+	bottom: 20px;
+	right: 20px;
+	mix-blend-mode: difference;
+	z-index: 10;
+	.inner {
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+		.itemFooter {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 5px 10px;
+			mix-blend-mode: difference;
+			height: 50px;
+
+			path {
+				mix-blend-mode: difference;
+			}
+		}
+	}
+
+	.bounds {
+		position: absolute;
+		mix-blend-mode: difference;
+
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: all;
+		&:hover {
+			transform: scale(3);
+		}
+	}
+}
