@@ -5,6 +5,10 @@
 	right: 20px;
 	mix-blend-mode: difference;
 	z-index: 10;
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 	.inner {
 		display: flex;
 		flex-direction: row;

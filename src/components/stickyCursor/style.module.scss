@@ -6,4 +6,8 @@
 	background-color: #fff;
 	border-radius: 50%;
 	pointer-events: none;
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 }
