@@ -3,11 +3,11 @@
 import React from "react";
 
 export const useRefs = <T>() => {
-    const refs = React.useRef<Record<string, T | null>>({});
+  const refs = React.useRef<Record<string, T | null>>({});
 
-    const setRef = (key: string, element: T | null) => {
-        refs.current[key] = element;
-    };
+  const setRef = (key: string, element: T | null) => {
+    refs.current[key] = element;
+  };
 
-    return { refs: refs.current, setRef };
+  return { refs: refs.current, setRef };
 };

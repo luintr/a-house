@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-
 "use client";
 import { useNavState } from "@/store/store";
 import Navbar from "@components/nav";
