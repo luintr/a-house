@@ -68,18 +68,12 @@ const Cursor: FC<TCustomMotionDivProps> = ({ stickyElement }) => {
 	};
 
 	const manageMouseOver = (e: MouseEvent) => {
-		console.log("ehehe");
 		setIsHovered(true);
 	};
 
 	const manageMouseLeave = (e: MouseEvent) => {
 		setIsHovered(false);
-		animate(
-			cursorRef.current,
-			{ scaleX: 1, scaleY: 1 },
-			// { duration: 0.1 }
-			{ type: "spring" }
-		);
+		animate(cursorRef.current, { scaleX: 1, scaleY: 1 }, { duration: 0.1 });
 	};
 
 	useEffect(() => {

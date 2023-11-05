@@ -1,7 +1,7 @@
-import { useRef, useState, ReactNode } from "react";
+import { useRef, useState, ReactNode, Fragment, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function Framer({ children }: { children: ReactNode }) {
+export default function Framer({ children, isActive }: TFramer) {
 	const ref = useRef<TCustomMotionDivProps>(null);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -17,16 +17,20 @@ export default function Framer({ children }: { children: ReactNode }) {
 	const reset = () => {
 		setPosition({ x: 0, y: 0 });
 	};
-
 	const { x, y } = position;
+
 	return (
 		<motion.div
-			style={{ position: "relative" }}
+			style={{ position: isActive ? "unset" : "relative" }}
 			ref={ref}
 			onMouseMove={handleMouse}
 			onMouseLeave={reset}
-			animate={{ x, y }}
-			transition={{ type: "spring", stiffness: 350, damping: 5, mass: 0.5 }}
+			animate={isActive ? undefined : { x, y }}
+			transition={
+				isActive
+					? undefined
+					: { type: "spring", stiffness: 350, damping: 5, mass: 0.5 }
+			}
 		>
 			{children}
 		</motion.div>
