@@ -31,4 +31,68 @@ const ImageData: StaticImageData[] = [
   gallery14,
 ];
 
+export type TGalleryData = {
+  img: StaticImageData;
+  width: number;
+  top: number;
+  left: number;
+};
+
+export const GalleryData: Array<TGalleryData> = [
+  {
+    img: gallery1,
+    width: 300,
+    top: 90,
+    left: 70,
+  },
+  {
+    img: gallery1,
+    width: 200,
+    top: 5,
+    left: 65,
+  },
+  {
+    img: gallery1,
+    width: 150,
+    top: 35,
+    left: 0,
+  },
+  {
+    img: gallery1,
+    width: 150,
+    top: 20,
+    left: 80,
+  },
+  {
+    img: gallery1,
+    width: 225,
+    top: 40,
+    left: 20,
+  },
+  {
+    img: gallery1,
+    width: 200,
+    top: 5,
+    left: 10,
+  },
+  {
+    img: gallery1,
+    width: 150,
+    top: 60,
+    left: 60,
+  },
+  {
+    img: gallery1,
+    width: 250,
+    top: 70,
+    left: 90,
+  },
+  {
+    img: gallery1,
+    width: 350,
+    top: 80,
+    left: 5,
+  },
+];
+
 export default ImageData;
