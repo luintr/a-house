@@ -41,9 +41,11 @@
 			align-items: center;
 			flex-direction: column;
 
-			&:hover::after,
-			&:hover::before {
-				background-color: #000;
+			@media (min-width: 1024px) {
+				&:hover::after,
+				&:hover::before {
+					background-color: #000;
+				}
 			}
 			&::after,
 			&::before {
