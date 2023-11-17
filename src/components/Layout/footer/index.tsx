@@ -3,7 +3,7 @@
 import { DATA_FOOTER } from "@/constants/data-footer";
 import s from "./styles.module.scss";
 import { forwardRef } from "react";
-import Framer from "../framer";
+import Framer from "../../framer";
 import { useImperativeHandle } from "react";
 import { useRefs } from "@/hooks/useRefs";
 import Link from "next/link";

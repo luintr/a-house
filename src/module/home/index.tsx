@@ -1,3 +1,5 @@
+'use client';
+
 // @ts-nocheck comment at the top of that file
 
 import React, { useRef, useState } from "react";

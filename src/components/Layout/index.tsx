@@ -1,8 +1,8 @@
 "use client";
 import { ReactNode, useRef, Fragment } from "react";
-import Header from "../header";
+import Header from "./header";
 import Cursor from "../stickyCursor";
-import Footer from "../footer";
+import Footer from "./footer";
 import { useRefs } from "@/hooks/useRefs";
 
 export default function Layout({ children }: { children: ReactNode }) {

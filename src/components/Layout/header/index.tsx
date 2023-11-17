@@ -1,13 +1,13 @@
 /* eslint-disable react/display-name */
 "use client";
 import { useNavState } from "@/store/store";
-import Navbar from "@components/nav";
+import Navbar from "../nav";
 import Logo from "@images/logo_hori.png";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { forwardRef } from "react";
-import Framer from "../framer";
+import Framer from "../../framer";
 import s from "./styles.module.scss";
 
 const Header = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
