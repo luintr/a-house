@@ -6,6 +6,7 @@ import { forwardRef } from "react";
 import Framer from "../framer";
 import { useImperativeHandle } from "react";
 import { useRefs } from "@/hooks/useRefs";
+import Link from "next/link";
 
 const Footer = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
 	(props, ref) => {
@@ -23,13 +24,13 @@ const Footer = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
 						const Icon = df.icon;
 						return (
 							<Framer key={index}>
-								<span className={s.itemFooter}>
+								<Link href={df.href} className={s.itemFooter}>
 									<Icon />
 									<div
 										ref={element => setRef(`${index}`, element)}
 										className={`${s.bounds}`}
 									></div>
-								</span>
+								</Link>
 							</Framer>
 						);
 					})}
