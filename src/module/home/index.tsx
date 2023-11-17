@@ -1,6 +1,5 @@
-'use client';
-
 // @ts-nocheck comment at the top of that file
+'use client';
 
 import React, { useRef, useState } from "react";
 import * as THREE from "three";
