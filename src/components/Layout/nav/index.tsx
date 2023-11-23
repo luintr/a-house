@@ -50,7 +50,7 @@ const Navbar = () => {
 					<div className={styles.nav_top}>
 						<span className={styles.nav_title}>A-House</span>
 						<span className={styles.nav_description}>
-							"I enjoy sipping on a warm cup of tea while reading a good book."
+							I enjoy sipping on a warm cup of tea while reading a good book.
 						</span>
 					</div>
 					<div className={styles.containerNavItem}>
