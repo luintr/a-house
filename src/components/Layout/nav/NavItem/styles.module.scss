@@ -1,0 +1,22 @@
+.item_nav {
+	position: relative;
+	height: 10rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+.item_left {
+	grid-column: 1 / span 2;
+}
+.item_right {
+	grid-column: 2 / span 2;
+}
+.description {
+	font-size: 1rem;
+	text-overflow: ellipsis;
+	text-wrap: wrap;
+}

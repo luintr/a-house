@@ -16,4 +16,17 @@ declare global {
         icon: () => JSX.Element;
         id: number;
     }[];
+
+    type TNavItem = {
+        title: string;
+        href: string;
+        content: string;
+        img: string;
+    };
+    type TNavItemSelected = {
+        data: TNavItem;
+        setSelectedIndicator: React.Dispatch<React.SetStateAction<string>>;
+        index: number;
+        selectedIndicator: string;
+    };
 }

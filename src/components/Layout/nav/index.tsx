@@ -5,96 +5,72 @@ import { usePathname } from "next/navigation";
 import { menuSlide } from "@utils/anim";
 import Links from "./Links";
 import Curve from "./Curve";
+import NavItem from "./NavItem";
 
 const navItems = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Gallery",
-    href: "/gallery",
-  },
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Home",
-    href: "/",
-  },
+	{
+		title: "Heading1",
+		href: "/",
+		content: "Hehehehe, My name Venn cute!!!!",
+		img: "./images/1.jpg",
+	},
+	{
+		title: "Heading2",
+		href: "/",
+		content: "Hehehehe, My name Venn cute!!!!",
+		img: "./images/1.jpg",
+	},
+	{
+		title: "Heading3",
+		href: "/",
+		content: "Hehehehe, My name Venn cute!!!!",
+		img: "./images/1.jpg",
+	},
 ];
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+	const pathname = usePathname();
+	const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
-  return (
-    <motion.div
-      variants={menuSlide}
-      initial="initial"
-      animate="enter"
-      exit="exit"
-      className={styles.menu}
-    >
-      <div className={styles.body}>
-        <div
-          onMouseLeave={() => {
-            setSelectedIndicator(pathname);
-          }}
-          className={styles.nav}
-        >
-          {navItems.map((data, index) => {
-            return (
-              <Links
-                key={index}
-                data={{ ...data, index }}
-                activeLink={selectedIndicator == data.href}
-                setSelectedIndicator={setSelectedIndicator}
-              ></Links>
-            );
-          })}
-        </div>
-      </div>
-      <Curve />
-    </motion.div>
-  );
+	return (
+		<motion.div
+			variants={menuSlide}
+			initial='initial'
+			animate='enter'
+			exit='exit'
+			className={styles.menu}
+		>
+			<div className={styles.body}>
+				<div
+					onMouseLeave={() => {
+						setSelectedIndicator(pathname);
+					}}
+					className={styles.nav}
+				>
+					<div className={styles.nav_top}>
+						<span className={styles.nav_title}>A-House</span>
+						<span className={styles.nav_description}>
+							"I enjoy sipping on a warm cup of tea while reading a good book."
+						</span>
+					</div>
+					<div className={styles.containerNavItem}>
+						{navItems.map((data, index) => {
+							return (
+								<NavItem
+									data={data}
+									index={index}
+									selectedIndicator={selectedIndicator}
+									setSelectedIndicator={setSelectedIndicator}
+									key={index}
+								/>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+			<Curve />
+		</motion.div>
+	);
 };
 
 export default Navbar;
