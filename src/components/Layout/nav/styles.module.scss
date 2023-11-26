@@ -13,13 +13,14 @@
 	.body {
 		box-sizing: border-box;
 		height: 100%;
-		padding: 40px;
+		padding: 60px 40px 80px 40px;
+
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 
 		@media (max-width: 600px) {
-			padding: 60px 40px;
+			padding: 60px 40px 80px 40px;
 		}
 		.containerNavItem {
 			display: grid;
