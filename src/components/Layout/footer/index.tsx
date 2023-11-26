@@ -8,8 +8,8 @@ import { useImperativeHandle } from "react";
 import { useRefs } from "@/hooks/useRefs";
 import Link from "next/link";
 
-const Footer = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
-	(props, ref) => {
+const Footer = forwardRef<TCustomMotionDivProps, TFooter>(
+	({ isOpen }: TFooter, ref) => {
 		const { refs, setRef } = useRefs();
 
 		// set refs footer
@@ -18,7 +18,7 @@ const Footer = forwardRef<TCustomMotionDivProps, TCustomMotionDivProps>(
 		}));
 
 		return (
-			<footer className={s.sectionFooter}>
+			<footer className={`${s.sectionFooter} ${isOpen ? s.open : undefined}`}>
 				<div className={s.inner}>
 					{DATA_FOOTER.map((df, index) => {
 						const Icon = df.icon;

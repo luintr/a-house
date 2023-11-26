@@ -6,6 +6,8 @@ import { menuSlide } from "@utils/anim";
 import Links from "./Links";
 import Curve from "./Curve";
 import NavItem from "./NavItem";
+import useWindowResize from "@/hooks/useWindowResize";
+import Footer from "../footer";
 
 const navItems = [
 	{
@@ -31,7 +33,7 @@ const navItems = [
 const Navbar = () => {
 	const pathname = usePathname();
 	const [selectedIndicator, setSelectedIndicator] = useState(pathname);
-
+	const { isMobile } = useWindowResize();
 	return (
 		<motion.div
 			variants={menuSlide}
@@ -69,6 +71,7 @@ const Navbar = () => {
 				</div>
 			</div>
 			<Curve />
+			{isMobile && <Footer isOpen={true} />}
 		</motion.div>
 	);
 };

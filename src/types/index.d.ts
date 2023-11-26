@@ -29,4 +29,8 @@ declare global {
         index: number;
         selectedIndicator: string;
     };
+
+    type TFooter = {
+        isOpen?: boolean;
+    };
 }
