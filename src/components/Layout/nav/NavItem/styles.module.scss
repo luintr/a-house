@@ -1,0 +1,27 @@
+.item_nav {
+	position: relative;
+	.item_nav_inner {
+		height: 10rem;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		border-radius: 8px;
+		box-shadow: rgb(100, 100, 111) 0px 7px 29px 0px;
+	}
+}
+.item_left {
+	grid-column: 1 / span 2;
+}
+.item_right {
+	grid-column: 2 / span 2;
+}
+.description {
+	font-size: 0.8rem;
+	font-weight: 600;
+	font-style: italic;
+	padding: 0.5rem 0 1rem;
+}

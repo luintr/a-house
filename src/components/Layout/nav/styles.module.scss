@@ -13,18 +13,39 @@
 	.body {
 		box-sizing: border-box;
 		height: 100%;
-		padding: 100px;
+		padding: 60px 40px 80px 40px;
+
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 
 		@media (max-width: 600px) {
-			padding: 60px 40px;
+			padding: 60px 40px 80px 40px;
 		}
+		.containerNavItem {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			row-gap: 2rem;
+		}
+		.nav_top {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			.nav_title {
+				font-weight: 700;
+			}
+			.nav_description {
+				padding: 0.5rem 0 1rem;
+				font-size: 0.5rem;
+				font-weight: 600;
+				font-style: italic;
+			}
+		}
+
 		.nav {
 			display: flex;
 			flex-direction: column;
-			font-size: 56px;
+			font-size: 2rem;
 			gap: 12px;
 			overflow-x: scroll;
 			height: 100%;
