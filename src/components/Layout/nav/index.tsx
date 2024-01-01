@@ -10,70 +10,66 @@ import useWindowResize from "@/hooks/useWindowResize";
 import Footer from "../footer";
 
 const navItems = [
-	{
-		title: "Heading1",
-		href: "/",
-		content: "Hehehehe, My name Venn cute!!!!",
-		img: "./images/1.jpg",
-	},
-	{
-		title: "Heading2",
-		href: "/",
-		content: "Hehehehe, My name Venn cute!!!!",
-		img: "./images/1.jpg",
-	},
-	{
-		title: "Heading3",
-		href: "/",
-		content: "Hehehehe, My name Venn cute!!!!",
-		img: "./images/1.jpg",
-	},
+  {
+    title: "Heading1",
+    href: "/",
+    content:
+      "Sip and savor on the move with 'A House' take-away coffee – where every cup is a quick escape to quality and flavor.",
+    img: "./images/home1.jpeg",
+  },
+  {
+    title: "Heading2",
+    href: "/",
+    content:
+      "Elevate your day with 'A House' take-away coffee – crafted for those who appreciate great taste on the fly.",
+    img: "./images/home2.jpeg",
+  },
 ];
 
 const Navbar = () => {
-	const pathname = usePathname();
-	const [selectedIndicator, setSelectedIndicator] = useState(pathname);
-	const { isMobile } = useWindowResize();
-	return (
-		<motion.div
-			variants={menuSlide}
-			initial='initial'
-			animate='enter'
-			exit='exit'
-			className={styles.menu}
-		>
-			<div className={styles.body}>
-				<div
-					onMouseLeave={() => {
-						setSelectedIndicator(pathname);
-					}}
-					className={styles.nav}
-				>
-					<div className={styles.nav_top}>
-						<span className={styles.nav_title}>A-House</span>
-						<span className={styles.nav_description}>
-							I enjoy sipping on a warm cup of tea while reading a good book.
-						</span>
-					</div>
-					<div className={styles.containerNavItem}>
-						{navItems.map((data, index) => {
-							return (
-								<NavItem
-									data={data}
-									index={index}
-									selectedIndicator={selectedIndicator}
-									setSelectedIndicator={setSelectedIndicator}
-									key={index}
-								/>
-							);
-						})}
-					</div>
-				</div>
-			</div>
-			<Curve />
-			{isMobile && <Footer isOpen={true} />}
-		</motion.div>
-	);
+  const pathname = usePathname();
+  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const { isMobile } = useWindowResize();
+  return (
+    <motion.div
+      variants={menuSlide}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className={styles.menu}
+    >
+      <div className={styles.body}>
+        <div
+          onMouseLeave={() => {
+            setSelectedIndicator(pathname);
+          }}
+          className={styles.nav}
+        >
+          <div className={styles.nav_top}>
+            <span className={styles.nav_title}>A-House</span>
+            <span className={styles.nav_description}>
+              I enjoy sipping on a warm cup of tea while reading a good book.
+            </span>
+          </div>
+          <div className={styles.containerNavItem}>
+            {navItems.map((data, index) => {
+              return (
+                <NavItem
+                  data={data}
+                  index={index}
+                  selectedIndicator={selectedIndicator}
+                  setSelectedIndicator={setSelectedIndicator}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <Curve />
+      {isMobile && <Footer isOpen={true} />}
+    </motion.div>
+  );
 };
 
 export default Navbar;

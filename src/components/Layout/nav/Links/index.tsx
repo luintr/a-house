@@ -36,10 +36,6 @@ const Links = ({ data, activeLink, setSelectedIndicator }: ILinks) => {
 				animate={activeLink ? "open" : "closed"}
 				className={styles.indicator}
 			></motion.div>
-
-			<Link onClick={setIsActive} href={href}>
-				{title}
-			</Link>
 		</motion.div>
 	);
 };
