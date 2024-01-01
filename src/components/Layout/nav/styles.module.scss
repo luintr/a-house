@@ -52,12 +52,37 @@
       font-size: 2rem;
       overflow-x: scroll;
       height: 100%;
-      padding-top: 4rem;
+      padding: 4rem 0;
 
       a {
         text-decoration: none;
         color: #000;
         font-weight: 300;
+      }
+    }
+
+    .social {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+
+      &_title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+      }
+
+      &_list {
+        display: flex;
+        gap: 2rem;
+
+        svg {
+          path {
+            fill: #000
+          }
+        }
       }
     }
   }

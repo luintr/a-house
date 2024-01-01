@@ -8,6 +8,10 @@ import Curve from "./Curve";
 import NavItem from "./NavItem";
 import useWindowResize from "@/hooks/useWindowResize";
 import Footer from "../footer";
+import { DATA_FOOTER } from "@/constants/data-footer";
+import Framer from "@/components/framer";
+import Link from "next/link";
+import { useRefs } from "@/hooks/useRefs";
 
 const navItems = [
   {
@@ -29,6 +33,7 @@ const navItems = [
 const Navbar = () => {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const { refs, setRef } = useRefs();
   const { isMobile } = useWindowResize();
   return (
     <motion.div
@@ -63,6 +68,25 @@ const Navbar = () => {
                 />
               );
             })}
+          </div>
+          <div className={styles.social}>
+            <p className={styles.social_title}>Get order through</p>
+            <div className={styles.social_list}>
+              {DATA_FOOTER.map((df, index) => {
+                const Icon = df.icon;
+                return (
+                  <Framer key={index}>
+                    <Link href={df.href} className={styles.itemFooter}>
+                      <Icon />
+                      <div
+                        ref={(element) => setRef(`${index}`, element)}
+                        className={`${styles.bounds}`}
+                      ></div>
+                    </Link>
+                  </Framer>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
